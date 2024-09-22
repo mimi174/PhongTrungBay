@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,6 +187,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 38 - Nha o 1 tang mai dao 7x3600
       objectReference: {fileID: 0}
+    - target: {fileID: 5677202160921622738, guid: 81da5734481fd4abb88ecbf302cb968e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: 5677202160921622738, guid: 81da5734481fd4abb88ecbf302cb968e, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -354,6 +362,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: "m\xE1i "
       objectReference: {fileID: 0}
+    - target: {fileID: 3128246069479752978, guid: 3b7ff80eb4a524c21b385f668a898c1a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: 3128246069479752978, guid: 3b7ff80eb4a524c21b385f668a898c1a, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -511,10 +527,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8565247609998027122, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1757bd15e61e77e48bec2f3a16141f0a, type: 2}
+    - target: {fileID: -8565247609998027122, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1757bd15e61e77e48bec2f3a16141f0a, type: 2}
+    - target: {fileID: -6086900765936597090, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: -6086900765936597090, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: -6086900765936597090, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
     - target: {fileID: 919132149155446097, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
       propertyPath: m_Name
       value: 02 - TAM BAO - 12 mai dao (chong diem)
       objectReference: {fileID: 0}
+    - target: {fileID: 1730354428224558088, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: 1730354428224558088, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5cf88223cea3c24e90f53648b620540, type: 2}
+    - target: {fileID: 3934109255286780489, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1757bd15e61e77e48bec2f3a16141f0a, type: 2}
+    - target: {fileID: 3934109255286780489, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1757bd15e61e77e48bec2f3a16141f0a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
