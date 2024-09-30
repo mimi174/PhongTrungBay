@@ -98,9 +98,10 @@ public class PlayerMovement : MonoBehaviour
    {
        // calculate movement direction
        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+         
+       moveDirection.y = 0f;
 
-
-       rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * (grounded ? 10f : 2f), ForceMode.Force);
    }
 
 
@@ -160,21 +161,38 @@ public class PlayerMovement : MonoBehaviour
     //         }
     //     }
     // }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag == "Stairs" && grounded)
+        {
+            if (verticalInput != 0) // Move up if pressing forward
+            {
+                Debug.Log("Vertical Input:" + verticalInput);
+                rb.AddForce(Vector3.up * climbSpeed, ForceMode.Force);
+            }
+        }
+    }
+
     private void HandleClimbing()
     {
+        return;
         // Check if the player is grounded
         if (grounded)
         {
+            //Debug.Log("Velocity: " + rb.velocity);
             // Cast a ray downwards to check for stairs
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, playerHeight * 0.5f + 0.3f, stairsLayer))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out hit, playerHeight * 0.5f + 0.3f, stairsLayer))
             {
+                Debug.Log("Hit distance: " + hit.distance);
                 // Check if the height of the stair is less than or equal to stairHeight
                 if (hit.distance <= stairHeight)
                 {
                     // Allow player to move up the stairs
-                    if (verticalInput < 0) // Move up if pressing forward
+                    if (verticalInput > 0) // Move up if pressing forward
                     {
+                        Debug.Log("Vertical Input:" + verticalInput);
                         rb.AddForce(Vector3.up * climbSpeed, ForceMode.Force);
                     }
                 }
