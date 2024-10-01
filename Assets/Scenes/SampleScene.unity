@@ -1305,7 +1305,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 20a34dd31b3351e4fa7ed3272e7e007d, type: 2}
     - target: {fileID: 919132149155446097, guid: 81da5734481fd4abb88ecbf302cb968e, type: 3}
       propertyPath: m_Name
-      value: 'Nha o 1 tang mai dao '
+      value: 38 - Nha o 1 tang mai dao 7x3600
       objectReference: {fileID: 0}
     - target: {fileID: 963493309123463409, guid: 81da5734481fd4abb88ecbf302cb968e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14451,7 +14451,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f28b9ab3f2dda4442a67866b8bb45a26, type: 2}
     - target: {fileID: 919132149155446097, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
       propertyPath: m_Name
-      value: 'TAM BAO '
+      value: 02 - TAM BAO - 12 mai dao (chong diem)
       objectReference: {fileID: 0}
     - target: {fileID: 1039363496216746768, guid: 47d6379579cc5418ea1d43a22d9fe82f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15112,7 +15112,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7f5d295c72d879f4f831dc6a6f86450a, type: 2}
     - target: {fileID: 919132149155446097, guid: 6af22f01397194a4e921220e206a51f0, type: 3}
       propertyPath: m_Name
-      value: Lu Huong Da
+      value: 32 - Lu Huong Da
       objectReference: {fileID: 0}
     - target: {fileID: 1224969975708938863, guid: 6af22f01397194a4e921220e206a51f0, type: 3}
       propertyPath: m_Materials.Array.data[0]

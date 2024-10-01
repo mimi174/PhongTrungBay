@@ -436,10 +436,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d25d0000
-      m_LastClickedID: 24018
-      m_ExpandedIDs: 18eaffff54eaffff56eaffff2cfbffff30fbffff
+      scrollPos: {x: 0, y: 1053}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 30fbffff64630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -793,9 +793,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -10.818425, y: 9.853888, z: -24.02793}
+    m_Target: {x: -1.4652724, y: 18.3835, z: -6.7447767}
     speed: 2
-    m_Value: {x: -10.818425, y: 9.853888, z: -24.02793}
+    m_Value: {x: -1.4652724, y: 18.3835, z: -6.7447767}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -841,13 +841,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.13929538, y: -0.7975491, z: 0.20152773, w: -0.5512791}
+    m_Target: {x: -0.17270678, y: -0.7085401, z: 0.18583693, w: -0.65849644}
     speed: 2
-    m_Value: {x: -0.13899225, y: -0.79837126, z: 0.20173547, w: -0.5500795}
+    m_Value: {x: -0.1736935, y: -0.70825714, z: 0.18689865, w: -0.65823346}
   m_Size:
-    m_Target: 41.213898
+    m_Target: 70.27955
     speed: 2
-    m_Value: 39.439137
+    m_Value: 67.25316
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -917,7 +917,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -925,15 +925,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity Project\PhongTrungBay
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 147c0000
-    m_LastClickedID: 31764
+    m_SelectedIDs: ac7b0000
+    m_LastClickedID: 31660
     m_ExpandedIDs: 00000000aa7b0000ac7b0000ae7b0000b07b0000b27b0000b47b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000921e0000565d000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
