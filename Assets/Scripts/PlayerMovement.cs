@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
    
    float rotationX, rotationY = 0f;
    public float mouseSensitivity = 10f;
-   private void Start()
+    public bool CanMove = true;
+    private void Start()
    {
        rb = GetComponent<Rigidbody>();
        rb.freezeRotation = true;
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
    private void MovePlayer()
    {
+        if(!CanMove) return;
        // calculate movement direction
        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
          
