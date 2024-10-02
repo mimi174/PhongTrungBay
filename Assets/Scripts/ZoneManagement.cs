@@ -33,20 +33,25 @@ public class ZoneManagement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_audioSource == null || _audioSource.clip == null || _audioSource.isPlaying)
-            return;
+        //if (_audioSource == null || _audioSource.clip == null || _audioSource.isPlaying)
+        //    return;
 
-        _audioSource.loop = true;
-        _audioSource.Play();
+        //_audioSource.loop = true;
+        //_audioSource.Play();
+
+        AudioManager.instance.PlayInGameMusic();
+
         Debug.Log("Audio is playing");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (_audioSource == null || _audioSource.clip == null || !_audioSource.isPlaying)
-            return;
+        //if (_audioSource == null || _audioSource.clip == null || !_audioSource.isPlaying)
+        //    return;
 
-        _audioSource.Stop();
+        //_audioSource.Stop();
+
+        AudioManager.instance.StopInGameMusic();
         Debug.Log("Audio stopped");
     }
 

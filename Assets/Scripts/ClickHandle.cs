@@ -14,11 +14,12 @@ public class ClickHandle: MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if (IsPointerOverUIObject()) return;
-
             var hit = PerformRaycast();
+
             if (hit.collider && IsInteractableTag(hit.collider.tag)) {
 
+                var picture = hit.collider.gameObject.GetComponent<Picture>();
+                picture.PlayMusic();
             }
 
         }
@@ -26,7 +27,7 @@ public class ClickHandle: MonoBehaviour
 
     private bool IsInteractableTag(string tag)
     {
-        return tag == "";
+        return tag == "picture";
     }
 
     private RaycastHit PerformRaycast()
