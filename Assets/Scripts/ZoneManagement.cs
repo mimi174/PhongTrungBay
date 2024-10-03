@@ -39,8 +39,6 @@ public class ZoneManagement : MonoBehaviour
         //_audioSource.loop = true;
         //_audioSource.Play();
 
-        AudioManager.instance.PlayInGameMusic();
-
         Debug.Log("Audio is playing");
     }
 
@@ -50,8 +48,7 @@ public class ZoneManagement : MonoBehaviour
         //    return;
 
         //_audioSource.Stop();
-
-        AudioManager.instance.StopInGameMusic();
+        
         Debug.Log("Audio stopped");
     }
 

@@ -6,7 +6,7 @@
   public class InstructionPlay : MonoBehaviour
   {
       private PlayerUIController _uiController;
-      private PlayerMovement _playerMovement;
+      private PlayerMovement1 _playerMovement;
       private bool isRunning = false;
       private List<string> _listOfText;
       private Coroutine currentCoroutine;
@@ -15,7 +15,7 @@
       void Start()
       {
           _uiController = GetComponent<PlayerUIController>();
-          _playerMovement = GetComponent<PlayerMovement>();
+          _playerMovement = GetComponent<PlayerMovement1>();
       }
 
      // Update is called once per frame
@@ -28,7 +28,7 @@ void Update()
                      if (_textCount >= _listOfText.Count)
                          {
             isRunning = false;
-            _playerMovement.CanMove = true;
+            _playerMovement.canMove = true;
             _textCount = 0;
             _uiController.DisposeInstruction();
                          }
@@ -51,7 +51,7 @@ void OnTriggerEnter(Collider other)
         
                      if (_uiController == null) return;
         
-        _playerMovement.CanMove = false;
+        _playerMovement.canMove = false;
         isRunning = true;
         _listOfText = instruction.ListOfText;
         _uiController.DisplayInstruction(_listOfText[_textCount]);
