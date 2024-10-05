@@ -18,26 +18,31 @@ public class PlayerMovement1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canMove) return;
-        
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = (transform.right * x + transform.forward * z) * speed;
-        
-        Debug.Log(controller.isGrounded);
-        
-        if (controller.isGrounded)
+        if (!canMove)
         {
-            vSpeed = 0;
+            controller.Move(Vector3.zero);
         }
         else
         {
-            vSpeed -= Gravity * Time.deltaTime;
-        }
-        
-        move.y = vSpeed;
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        controller.Move(move * Time.deltaTime);
+            Vector3 move = (transform.right * x + transform.forward * z) * speed;
+        
+            Debug.Log(controller.isGrounded);
+        
+            if (controller.isGrounded)
+            {
+                vSpeed = 0;
+            }
+            else
+            {
+                vSpeed -= Gravity * Time.deltaTime;
+            }
+        
+            move.y = vSpeed;
+
+            controller.Move(move * Time.deltaTime);   
+        }
     }
 }
