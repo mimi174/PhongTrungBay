@@ -8,21 +8,54 @@ public class ClickHandle: MonoBehaviour
 {
 
     [SerializeField] private Camera mainCamera;
-
+    [SerializeField] private GameObject ClickToReadMessage;
+    [SerializeField] private float distance = 10;
+    Picture picture;
+    private void Start()
+    {
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        var hit = PerformRaycast();
+        if (hit.collider && IsInteractableTag(hit.collider.tag) && hit.distance <= distance)
         {
-            var hit = PerformRaycast();
+            if(picture != null)
+                Debug.Log("Sound Playing: " + picture.IsSoundPlaying);
 
-            if (hit.collider && IsInteractableTag(hit.collider.tag)) {
-
-                var picture = hit.collider.gameObject.GetComponent<Picture>();
-                picture.PlayMusic();
+            if (picture == null || !picture.IsSoundPlaying)
+            {
+                ShowMessage();
+            }
+            else
+            {
+                CloseMessage();
             }
 
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                picture = hit.collider.gameObject.GetComponent<Picture>();
+                picture.PlayMusic();
+            }
         }
+        else
+        {
+            CloseMessage();
+        }
+        
+    }
+
+    private void ShowMessage()
+    {
+        if (ClickToReadMessage != null && !ClickToReadMessage.activeSelf)
+            ClickToReadMessage.SetActive(true);
+    }
+
+    private void CloseMessage()
+    {
+        if (ClickToReadMessage != null && ClickToReadMessage.activeSelf)
+            ClickToReadMessage.SetActive(false);
     }
 
     private bool IsInteractableTag(string tag)

@@ -6,6 +6,7 @@
   public class PlayerUIController : MonoBehaviour
   {
       public GameObject InstructionDisplay;
+    public GameObject PressToRead;
       // Start is called before the first frame update
       void Start()
       {
@@ -33,4 +34,12 @@
       {
           InstructionDisplay.SetActive(false);
       }
+
+    public void DisplayPressToReadMessage()
+    {
+        PressToRead.SetActive(true);
+    }
+    public void DisposePressToReadMessage() {
+        PressToRead.SetActive(false);
+    }
   }

@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
    public float playerHeight;
    public LayerMask whatIsGround;
    bool grounded;
-
+    
 
    public Transform orientation;
 
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
    float rotationX, rotationY = 0f;
    public float mouseSensitivity = 10f;
     public bool CanMove = true;
+                                                                                                           
     private void Start()
    {
        rb = GetComponent<Rigidbody>();

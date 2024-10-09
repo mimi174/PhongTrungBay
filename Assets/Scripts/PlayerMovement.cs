@@ -10,10 +10,8 @@ public class PlayerMovement1 : MonoBehaviour
     public float vSpeed = 0;
     
     public bool canMove = true;
-
     void Start()
     {
-
     }
 
     private void FixedUpdate()
