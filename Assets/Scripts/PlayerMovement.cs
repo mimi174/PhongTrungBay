@@ -27,7 +27,7 @@ public class PlayerMovement1 : MonoBehaviour
 
             Vector3 move = (transform.right * x + transform.forward * z) * speed;
         
-            Debug.Log(controller.isGrounded);
+            //Debug.Log(controller.isGrounded);
         
             if (controller.isGrounded)
             {

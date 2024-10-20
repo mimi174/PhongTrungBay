@@ -21,8 +21,26 @@ public class Picture : MonoBehaviour
         AudioManager.instance.PlayPictureMusic(clip, false);
     }
 
+    public void PauseMusic()
+    {
+        AudioManager.instance.PlayInGameMusic();
+        AudioManager.instance.PausePictureMusic(clip);
+    }
+
+    public void ResumMusic()
+    {
+        AudioManager.instance.PauseInGameMusic();
+        AudioManager.instance.ResumePictureMusic(clip);
+    }
+
     public void StopMusic()
     {
         AudioManager.instance.StopSound();
+        AudioManager.instance.PlayInGameMusic();
+    }
+
+    public (float clipLength, float soundTime) GetPictureState()
+    {
+        return AudioManager.instance.GetState();
     }
 }

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AudioState
+{
+    Playing,
+    Pause,
+    End
+}
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
@@ -48,6 +54,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public (float clipLength, float soundTime) GetState()
+    {
+        return (soundSource.clip.length, soundSource.time);
+    }
+
     public void SetMuteSounds(bool mute)
     {
         soundSource.mute = !mute;
@@ -75,6 +86,24 @@ public class AudioManager : MonoBehaviour
                 musicSource.UnPause();
             }
         }
+    }
+
+    public void PausePictureMusic(AudioClip clip)
+    {
+        if (clip == null) return;
+        soundSource.clip = clip;
+
+        if (soundSource.isPlaying)
+            soundSource.Pause();
+    }
+
+    public void ResumePictureMusic(AudioClip clip)
+    {
+        if (clip == null) return;
+        soundSource.clip = clip;
+
+        if(!soundSource.isPlaying)
+            soundSource.Play();
     }
 
     public void PlayPictureMusic(AudioClip clip, bool repeat)
