@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +13,7 @@ public class ClickHandle: MonoBehaviour
     private bool isSoundEnded = false;
     Picture picture;
     private string _audioName = string.Empty;
+
     private void Start()
     {
     }
@@ -54,7 +55,7 @@ public class ClickHandle: MonoBehaviour
             if (Input.GetMouseButtonUp(0) && picture == null)
             {
                 picture = hit.collider.gameObject.GetComponent<Picture>();
-                _audioName = "Sound";
+                _audioName = picture.Name;
                 picture.PlayMusic();
             }
         }
@@ -89,17 +90,17 @@ public class ClickHandle: MonoBehaviour
             return;
         }
 
-        string msg = "Press [Q] to quit \n";
+        string msg = "Nhấn [Q] để thoát \n";
 
         if (isSoundEnded)
         {
-            msg += "Press [E] to replay \n";
+            msg += "Nhấn [E] để tiếp tục \n";
             msg += $"{_audioName} is end";
         }
         else
         {
-            msg += (picture.IsSoundPlaying ? "Press [E] to pause" : "Press [E] to continue") + "\n";
-            msg += picture.IsSoundPlaying ? $"{_audioName} is playing" : $"{_audioName} is paused";
+            msg += (picture.IsSoundPlaying ? "Nhấn [E] để tạm dừng " : "Nhấn [E] để tiếp tục") + "\n";
+            msg += picture.IsSoundPlaying ? $"{_audioName} đang được phát" : $"{_audioName} đã được tạm dừng";
         }
 
 

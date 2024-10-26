@@ -6,6 +6,7 @@ public class Picture : MonoBehaviour
 {
     [SerializeField] private AudioClip clip;
 
+    public string Name;
     public bool IsSoundPlaying { get { return AudioManager.instance.SoundIsPlaying(); } }
     private void Update()
     {
