@@ -10,8 +10,10 @@ public class Picture : MonoBehaviour
 
     public string Name;
     public bool IsSoundPlaying { get { return AudioManager.instance.SoundIsPlaying(); } }
-    private void FixedUpdate()
+    private void Update()
     {
+        if (PauseMenu.instance.isPaused) return;
+        
         if (AudioManager.instance.SoundIsPlaying() == false && AudioManager.instance.MusicIsPlaying() == false)
         {
             AudioManager.instance.PlayInGameMusic();
@@ -27,13 +29,13 @@ public class Picture : MonoBehaviour
     public void PauseMusic()
     {
         AudioManager.instance.PlayInGameMusic();
-        AudioManager.instance.PausePictureMusic(clip);
+        AudioManager.instance.PausePictureMusic();
     }
 
     public void ResumMusic()
     {
         AudioManager.instance.PauseInGameMusic();
-        AudioManager.instance.ResumePictureMusic(clip);
+        AudioManager.instance.ResumePictureMusic();
     }
 
     public void StopMusic()

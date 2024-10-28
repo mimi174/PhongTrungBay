@@ -17,12 +17,10 @@ public class ClickHandle : MonoBehaviour
     Picture picture;
     private string _audioName = string.Empty;
 
-    private void Start()
+    private void Update()
     {
-    }
+        if (PauseMenu.instance.isPaused) return;
 
-    private void FixedUpdate()
-    {
         SetAudioMessage();
         CheckIfSoundEnded();
 

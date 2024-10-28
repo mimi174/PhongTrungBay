@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,14 +8,15 @@ using UnityEngine.UI;
 //Quản lý sự kiện nhấn F1 để mở menu tạm dừng tham quan
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
+    
     public GameObject pauseMenuUI; // Tham chiếu đến Panel
+    
+    public bool isPaused = false; //Biến check xem game có đang tạm dừng hay không
 
-    private AudioSource[] audioSources; // Danh sách AudioSource
-
-    private void Start()
+    private void Awake()
     {
-        // Lấy tất cả AudioSource trong scene
-        audioSources = FindObjectsOfType<AudioSource>();
+        if (instance == null) instance = this;
     }
 
     private void Update()
@@ -34,28 +36,25 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        isPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // Tiếp tục trò chơi
         Cursor.lockState = CursorLockMode.Locked; // Hiện con trỏ chuột
         Cursor.visible = false; // Đảm bảo con trỏ chuột hiển thị
-
-        foreach (var audio in audioSources)
-        {
-            audio.UnPause();
-        }
+        
+        AudioManager.instance.ResumePictureMusic(); // Tiếp tục thuyết minh
+        
     }
 
     public void Pause()
     {
+        isPaused = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // Dừng trò chơi
         Cursor.lockState = CursorLockMode.None; // Hiện con trỏ chuột
         Cursor.visible = true; // Đảm bảo con trỏ chuột hiển thị
-
-        foreach (var audio in audioSources)
-        {
-            audio.Pause();
-        }
+        
+        AudioManager.instance.PausePictureMusic(); //Tạm dừng thuyết minh
     }
 
     public void Quit()

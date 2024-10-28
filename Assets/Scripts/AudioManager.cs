@@ -94,20 +94,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PausePictureMusic(AudioClip clip)
+    public void PausePictureMusic()
     {
-        if (clip == null) return;
-        soundSource.clip = clip;
-
         if (soundSource.isPlaying)
             soundSource.Pause();
     }
 
-    public void ResumePictureMusic(AudioClip clip)
+    public void ResumePictureMusic()
     {
-        if (clip == null) return;
-        soundSource.clip = clip;
-
         if (!soundSource.isPlaying)
             soundSource.Play();
     }

@@ -21,8 +21,10 @@ public class InstructionPlay : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
+        if (PauseMenu.instance.isPaused) return;
+
         if (Input.GetKeyDown(KeyCode.Space) && isRunning)
         {
             _textCount++;
