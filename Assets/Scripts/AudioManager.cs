@@ -25,11 +25,13 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) { 
+        if (instance == null)
+        {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else {
+        else
+        {
             Destroy(this.gameObject);
         }
     }
@@ -51,7 +53,8 @@ public class AudioManager : MonoBehaviour
             musicSource.volume = 1f;
             musicSource.mute = false;
         }
-        else {
+        else
+        {
             musicSource.volume = 0f;
             musicSource.mute = true;
         }
@@ -105,7 +108,7 @@ public class AudioManager : MonoBehaviour
         if (clip == null) return;
         soundSource.clip = clip;
 
-        if(!soundSource.isPlaying)
+        if (!soundSource.isPlaying)
             soundSource.Play();
     }
 
@@ -129,7 +132,8 @@ public class AudioManager : MonoBehaviour
                 }
             }
         }
-        else {
+        else
+        {
 
             if (clip != null)
             {

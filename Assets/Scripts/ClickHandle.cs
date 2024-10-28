@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //Gắn cho obj ClickHandle
 //Quản lý sự kiện click chuột để nghe thuyết minh
 
-public class ClickHandle: MonoBehaviour
+public class ClickHandle : MonoBehaviour
 {
     [SerializeField] private GameObject audioMsg;
     [SerializeField] private Camera mainCamera;
@@ -21,7 +21,7 @@ public class ClickHandle: MonoBehaviour
     {
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         SetAudioMessage();
         CheckIfSoundEnded();
@@ -66,12 +66,12 @@ public class ClickHandle: MonoBehaviour
         {
             CloseMessage();
         }
-        
+
     }
 
     private void CheckIfSoundEnded()
     {
-        if(picture == null)
+        if (picture == null)
         {
             isSoundEnded = false;
             return;

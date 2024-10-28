@@ -10,7 +10,7 @@ public class Picture : MonoBehaviour
 
     public string Name;
     public bool IsSoundPlaying { get { return AudioManager.instance.SoundIsPlaying(); } }
-    private void Update()
+    private void FixedUpdate()
     {
         if (AudioManager.instance.SoundIsPlaying() == false && AudioManager.instance.MusicIsPlaying() == false)
         {

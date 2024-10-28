@@ -7,147 +7,142 @@ using UnityEngine;
 //Xử lý di chuyển của người chơi
 public class PlayerMovement : MonoBehaviour
 {
-   [Header("Movement")]
-   public float moveSpeed;
+    [Header("Movement")]
+    public float moveSpeed;
 
 
-   public float groundDrag;
+    public float groundDrag;
 
 
-   public float jumpForce;
-   public float jumpCooldown;
-   public float airMultiplier;
-   bool readyToJump;
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    bool readyToJump;
 
 
-   [HideInInspector] public float walkSpeed;
-   [HideInInspector] public float sprintSpeed;
+    [HideInInspector] public float walkSpeed;
+    [HideInInspector] public float sprintSpeed;
 
 
-   [Header("Keybinds")]
-   public KeyCode jumpKey = KeyCode.Space;
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
 
 
-   [Header("Ground Check")]
-   public float playerHeight;
-   public LayerMask whatIsGround;
-   bool grounded;
-    
-
-   public Transform orientation;
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
 
 
-   float horizontalInput;
-   float verticalInput;
+    public Transform orientation;
 
 
-   Vector3 moveDirection;
+    float horizontalInput;
+    float verticalInput;
 
 
-   Rigidbody rb;
+    Vector3 moveDirection;
+
+
+    Rigidbody rb;
 
     [Header("Climbing")]
     public float stairHeight;
-    public float climbSpeed; 
+    public float climbSpeed;
     public LayerMask stairsLayer;
-   
-   float rotationX, rotationY = 0f;
-   public float mouseSensitivity = 10f;
+
+    float rotationX, rotationY = 0f;
+    public float mouseSensitivity = 10f;
     public bool CanMove = true;
-                                                                                                           
+
     private void Start()
-   {
-       rb = GetComponent<Rigidbody>();
-       rb.freezeRotation = true;
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
 
 
-       readyToJump = true;
-   }
+        readyToJump = true;
+    }
 
 
-   private void Update()
-   {
-       // ground check
-       grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-    
-
-       MyInput();
-       SpeedControl();
-       PlayerRotation();
-   }
+    private void FixedUpdate()
+    {
+        // ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
 
-   private void FixedUpdate()
-   {
-       MovePlayer();
-       HandleClimbing();
-   }
+        MyInput();
+        SpeedControl();
+        PlayerRotation();
+        MovePlayer();
+        HandleClimbing();
+    }
 
 
-   private void MyInput()
-   {
-       horizontalInput = Input.GetAxisRaw("Horizontal");
-       verticalInput = Input.GetAxisRaw("Vertical");
-       //when to jump
-       if (Input.GetKey(jumpKey) && readyToJump && grounded)
-       {
-          readyToJump = false;
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+        //when to jump
+        if (Input.GetKey(jumpKey) && readyToJump && grounded)
+        {
+            readyToJump = false;
             Jump();
-          Invoke(nameof(ResetJump), jumpCooldown);
-       }
-   }
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+    }
 
 
-   private void MovePlayer()
-   {
-        if(!CanMove) return;
-       // calculate movement direction
-       moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-         
-       moveDirection.y = 0f;
+    private void MovePlayer()
+    {
+        if (!CanMove) return;
+        // calculate movement direction
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        moveDirection.y = 0f;
 
         rb.AddForce(moveDirection.normalized * moveSpeed * (grounded ? 10f : 2f), ForceMode.Force);
-   }
+    }
 
 
-   private void SpeedControl()
-   {
-       Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
 
-       // limit velocity if needed
-       if (flatVel.magnitude > moveSpeed)
-       {
-           Vector3 limitedVel = flatVel.normalized * moveSpeed;
-           rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-       }
-   }
+        // limit velocity if needed
+        if (flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+    }
 
 
-   private void Jump()
-   {
-       // reset y velocity
-       rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+    private void Jump()
+    {
+        // reset y velocity
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
 
-       rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-   }
-   private void ResetJump()
-   {
-       readyToJump = true;
-   }
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
 
 
-   void PlayerRotation()
-   {
-       rotationY += Input.GetAxis("Mouse X") * mouseSensitivity * -1;
-       rotationX += Input.GetAxis("Mouse Y") * mouseSensitivity * -1;
+    void PlayerRotation()
+    {
+        rotationY += Input.GetAxis("Mouse X") * mouseSensitivity * -1;
+        rotationX += Input.GetAxis("Mouse Y") * mouseSensitivity * -1;
 
 
-       rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-       orientation.localEulerAngles = new Vector3(rotationX, rotationY, 0);
-   }
-    
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        orientation.localEulerAngles = new Vector3(rotationX, rotationY, 0);
+    }
+
     // private void HandleClimbing()
     // {
     //     // Check if the player is grounded and colliding with stairs
@@ -169,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == "Stairs" && grounded)
+        if (collision.gameObject.tag == "Stairs" && grounded)
         {
             if (verticalInput != 0) // Move up if pressing forward
             {
