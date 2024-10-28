@@ -1,9 +1,11 @@
- using System.Collections;
+﻿ using System.Collections;
   using System.Collections.Generic;
   using System.Linq;
   using UnityEngine;
- 
-  public class InstructionPlay : MonoBehaviour
+
+//Gắn cho obj Player
+//Xử lý tương tác với các instruction 
+public class InstructionPlay : MonoBehaviour
   {
       private PlayerUIController _uiController;
       private PlayerMovement1 _playerMovement;

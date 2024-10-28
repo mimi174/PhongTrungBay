@@ -1,7 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Gắn cho obj Floor
+//Xử lý vùng phát ra âm thanh
 public class ZoneManagement : MonoBehaviour
 {
     private BoxCollider _boxCollider, _parentBoxColiider;

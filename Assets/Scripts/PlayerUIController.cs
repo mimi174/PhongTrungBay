@@ -1,9 +1,12 @@
-  using System.Collections;
+﻿  using System.Collections;
   using System.Collections.Generic;
   using UnityEngine;
   using UnityEngine.UI;
-  
-  public class PlayerUIController : MonoBehaviour
+
+//Gắn cho obj Player
+//Xử lý UI để hiển thị phần hướng dẫn
+
+public class PlayerUIController : MonoBehaviour
   {
       public GameObject InstructionDisplay;
     public GameObject PressToRead;

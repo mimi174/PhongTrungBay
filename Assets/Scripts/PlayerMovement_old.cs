@@ -1,8 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//Code di chuyển cũ, đã ẩn đi
+//Gắn cho obj Player 
+//Xử lý di chuyển của người chơi
 public class PlayerMovement : MonoBehaviour
 {
    [Header("Movement")]

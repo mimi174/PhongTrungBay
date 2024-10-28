@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//Gắn cho obj ClickHandle
+//Quản lý sự kiện click chuột để nghe thuyết minh
+
 public class ClickHandle: MonoBehaviour
 {
     [SerializeField] private GameObject audioMsg;

@@ -1,7 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gắn cho obj Player
+//Xử lý di chuyển của người chơi
 public class PlayerMovement1 : MonoBehaviour
 {
     public CharacterController controller;

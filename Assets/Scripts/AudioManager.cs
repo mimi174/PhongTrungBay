@@ -1,6 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//Gắn cho obj AudioMangager
+//Giúp quản lý các âm thanh trong game
 
 public enum AudioState
 {

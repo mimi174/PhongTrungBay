@@ -1,7 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gắn cho các obj ảnh bên trong Phòng trưng bày Đông Vu 
+//Giúp quản lý các ảnh để phát nội dung thuyết minh cho ảnh
 public class Picture : MonoBehaviour
 {
     [SerializeField] private AudioClip clip;

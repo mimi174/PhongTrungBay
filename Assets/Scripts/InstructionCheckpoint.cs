@@ -1,8 +1,10 @@
- using System.Collections;
+﻿ using System.Collections;
   using System.Collections.Generic;
   using UnityEngine;
- 
-  public class InstructionCheckpoint : MonoBehaviour
+
+//Gắn cho obj Right, Welcome
+//Xử lý hiện thị văn bản hướng dẫn người chơi
+public class InstructionCheckpoint : MonoBehaviour
   {
       [SerializeField]
       private Instruction instruction;

@@ -1,6 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//Gắn cho obj ClickHandle, Main Camera
+//Xử lý dùng chuột di chuyển camera
 
 public class MouseLook : MonoBehaviour
 {
