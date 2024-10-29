@@ -9,13 +9,21 @@ using UnityEngine.UI;
 
 public class ClickHandle : MonoBehaviour
 {
+    public static ClickHandle instance;
+
     [SerializeField] private GameObject audioMsg;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject ClickToReadMessage;
     [SerializeField] private float distance = 10;
-    private bool isSoundEnded = false;
+    public bool isSoundEnded = false;
+
     Picture picture;
     private string _audioName = string.Empty;
+
+    private void Awake()
+    {
+        if (instance == null) { instance = this; }
+    }
 
     private void Update()
     {
@@ -71,7 +79,7 @@ public class ClickHandle : MonoBehaviour
     {
         if (picture == null)
         {
-            isSoundEnded = false;
+            isSoundEnded = true;
             return;
         }
         var state = picture.GetPictureState();

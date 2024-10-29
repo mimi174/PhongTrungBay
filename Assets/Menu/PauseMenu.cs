@@ -41,7 +41,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; // Tiếp tục trò chơi
         Cursor.lockState = CursorLockMode.Locked; // Hiện con trỏ chuột
         Cursor.visible = false; // Đảm bảo con trỏ chuột hiển thị
-        
+
+        if (ClickHandle.instance.isSoundEnded) return;
+
         AudioManager.instance.ResumePictureMusic(); // Tiếp tục thuyết minh
         
     }
@@ -53,7 +55,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; // Dừng trò chơi
         Cursor.lockState = CursorLockMode.None; // Hiện con trỏ chuột
         Cursor.visible = true; // Đảm bảo con trỏ chuột hiển thị
-        
+
+        if (ClickHandle.instance.isSoundEnded) return;
+
         AudioManager.instance.PausePictureMusic(); //Tạm dừng thuyết minh
     }
 
