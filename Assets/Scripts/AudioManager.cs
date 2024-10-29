@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
                 {
                     soundSource.loop = true;
                     soundSource.clip = clip;
-                    musicSource.Play();
+                    soundSource.Play();
                 }
                 else
                 {
@@ -137,7 +137,7 @@ public class AudioManager : MonoBehaviour
                 {
                     soundSource.loop = true;
                     soundSource.clip = clip;
-                    musicSource.Play();
+                    soundSource.Play();
                 }
                 else
                 {
@@ -167,10 +167,8 @@ public class AudioManager : MonoBehaviour
 
     public void StopSound()
     {
-        if (soundSource.isPlaying)
-        {
-            soundSource.Stop();
-        }
+        soundSource.Stop();
+        soundSource.clip = null;
     }
 
     public bool SoundIsPlaying() { return soundSource.isPlaying; }

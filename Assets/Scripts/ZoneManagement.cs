@@ -17,10 +17,6 @@ public class ZoneManagement : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider>();
         _parentBoxColiider = transform.parent.GetComponent<BoxCollider>();
         _audioSource = GetComponent<AudioSource>();
-
-        Debug.Log("Parent center:" + _parentBoxColiider.center);
-        Debug.Log("Parent size:" + _parentBoxColiider.size);
-
         DrawCollider();
     }
 
@@ -36,23 +32,12 @@ public class ZoneManagement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (_audioSource == null || _audioSource.clip == null || _audioSource.isPlaying)
-        //    return;
 
-        //_audioSource.loop = true;
-        //_audioSource.Play();
-
-        Debug.Log("Audio is playing");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //if (_audioSource == null || _audioSource.clip == null || !_audioSource.isPlaying)
-        //    return;
 
-        //_audioSource.Stop();
-
-        Debug.Log("Audio stopped");
     }
 
     // Update is called once per frame

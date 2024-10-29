@@ -28,7 +28,6 @@ public class InstructionPlay : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isRunning)
         {
             _textCount++;
-            Debug.Log("Text count: " + _textCount);
             if (_textCount >= _listOfText.Count)
             {
                 isRunning = false;

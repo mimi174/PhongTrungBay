@@ -17,7 +17,7 @@ public class ClickHandle : MonoBehaviour
     [SerializeField] private float distance = 10;
     public bool isSoundEnded = false;
 
-    Picture picture;
+    public Picture picture;
     private string _audioName = string.Empty;
 
     private void Awake()
@@ -26,9 +26,9 @@ public class ClickHandle : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
         if (PauseMenu.instance.isPaused) return;
-
+        
         SetAudioMessage();
         CheckIfSoundEnded();
 
@@ -48,9 +48,6 @@ public class ClickHandle : MonoBehaviour
         var hit = PerformRaycast();
         if (hit.collider && IsInteractableTag(hit.collider.tag) && hit.distance <= distance)
         {
-            //if(picture != null)
-            //    Debug.Log("Sound Playing: " + picture.IsSoundPlaying);
-
             if (picture == null)
             {
                 ShowMessage();
@@ -59,10 +56,11 @@ public class ClickHandle : MonoBehaviour
             {
                 CloseMessage();
             }
-
-
-            if (Input.GetMouseButtonUp(0) && picture == null)
+            
+            if (Input.GetMouseButtonDown(0) && picture == null)
             {
+                if (!IsPointerOverUIObject()) return;
+                
                 picture = hit.collider.gameObject.GetComponent<Picture>();
                 _audioName = picture.Name;
                 picture.PlayMusic();
@@ -87,8 +85,6 @@ public class ClickHandle : MonoBehaviour
             isSoundEnded = true;
         else
             isSoundEnded = false;
-
-        Debug.Log("Clip length: " + state.clipLength + "\n Clip time: " + state.soundTime);
     }
 
     private void SetAudioMessage()
@@ -141,17 +137,22 @@ public class ClickHandle : MonoBehaviour
         Physics.Raycast(ray, out var hit, Mathf.Infinity);
         return hit;
     }
-
-
-
+    
     public static bool IsPointerOverUIObject()
     {
-        var results = new List<RaycastResult>();
-
         var eventDataCurrentPosition = new PointerEventData(EventSystem.current);
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        var results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].gameObject.layer == LayerMask.NameToLayer("UI"))
+            {
+                results.RemoveAt(i);
+                i--;
+            }
+        }
+        
         return results.Count > 0;
     }
 }
