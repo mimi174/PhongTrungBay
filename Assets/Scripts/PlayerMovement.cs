@@ -18,6 +18,8 @@ public class PlayerMovement1 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!Manager.instance.canPlay) return;
+        
         if (!canMove)
         {
             controller.Move(Vector3.zero);
@@ -28,8 +30,6 @@ public class PlayerMovement1 : MonoBehaviour
             float z = Input.GetAxis("Vertical");
 
             Vector3 move = (transform.right * x + transform.forward * z) * speed;
-
-            //Debug.Log(controller.isGrounded);
 
             if (controller.isGrounded)
             {

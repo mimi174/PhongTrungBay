@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,20 +11,56 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public static MenuController instance;
+    
+    [SerializeField] private Transform button;
+    
+    [SerializeField] private Transform loadingScreen;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-
+        button.gameObject.SetActive(true);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        LoadScene("SampleScene");
+    }
+    
+    public async void LoadScene(string sceneName)
+    {
+        loadingScreen.gameObject.SetActive(true);
+        
+        var scene = SceneManager.LoadSceneAsync(sceneName);
+        if (scene != null)
+        { 
+            scene.allowSceneActivation = false;
+
+            do
+            {
+                await Task.Delay(3000);
+            } while (scene.progress < 0.9f);
+            
+            await Task.Delay(1000);
+
+            scene.allowSceneActivation = true;
+            
+            await Task.Delay(30);
+        }
+            
     }
 }

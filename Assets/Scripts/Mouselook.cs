@@ -19,6 +19,8 @@ public class MouseLook : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!Manager.instance.canPlay) return;
+        
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
