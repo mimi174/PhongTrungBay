@@ -45,6 +45,7 @@ public class InstructionPlay : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.tag == "Instruction")
         {
             var instructionCheckpoint = other.gameObject.GetComponent<InstructionCheckpoint>();
