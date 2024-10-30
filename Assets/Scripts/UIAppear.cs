@@ -3,6 +3,8 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Tạo ra các hiệu ứng xuất hiện và đóng cho các thành phần giao diện người dùng trong Unity một cách linh hoạt và dễ dàng
+
 public enum EAppearType
 {
 	scale, move, rotate

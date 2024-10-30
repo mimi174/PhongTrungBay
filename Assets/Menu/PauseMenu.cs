@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
 
         if (ClickHandle.instance.isSoundEnded) return;
 
-        ClickHandle.instance.picture.ResumMusic(); // Tiếp tục thuyết minh
+        //ClickHandle.instance.picture.ResumMusic(); // Tiếp tục thuyết minh
         
     }
 

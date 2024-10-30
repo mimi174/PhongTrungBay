@@ -2,6 +2,10 @@
 using DG.Tweening;
 using UnityEngine;
 
+//
+//tạo ra một hiệu ứng liên tục phóng to và thu nhỏ cho đối tượng trong game
+
+
 public class LoopAnim : MonoBehaviour
 {
     [SerializeField] float delay = .3f;
